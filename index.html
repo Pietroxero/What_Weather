@@ -14,48 +14,48 @@
     <title>Weather API</title>
 </head>
 <body>
-    <div id="weatherContainer" class="container mb-3 mt-3">
+    <header id="weatherContainer" class="container mb-3 mt-3">
         <div id="weather" class="row">
           <div id="title" class="col-12 title text-center font-weight-bold">
             <h1>Weather Dashboard</h1>
           </div>
         </div>
-    </div>  
+    </header>  
     <main>
         <div class="row">
 
             <div class='col-3 mx-4' id='left-column'>
                 <div class ='row border-bottom pb-2'id = 'search'>
-                    <h1 class ='display-6' id='searchtxt'>Search for a City:</h1>
+                    <h1 class ='display-6' id='searchpara'><strong>Search for a City:</strong></h1>
                     
-                    <input class ='rounded border-1'type = 'text' id ="userInput" placeholder="Enter Country, State, or City"/>
+                    <input class ='rounded border-1'type = 'text' id ="userInput" placeholder="Enter City or State"/>
                     <br>
                     <button class = 'my-1 mt-2 rounded' id ="searchBtn" type ="button">Search</button>
-                    <div class="card mt-5" id="recent-searches">
-                        <h1 class ='display-6' id='searchtxt'>Search history:</h1>
+                    <div class="card mt-5" id="recent-search">
+                        <h1 class ='display-6' id='searchpar'>Search history:</h1>
                         <ul class="list-group list-group-flush" id="recent-searches-list">
                          </ul> 
                          <button class = 'my-1 mt-2 rounded' id='clearBtn'>Clear History</button>
                       </div>
                     
                 </div>
-                <div class ="list-group" id= "cityList"></div>
+                <div class ="list-group" id= "cities"></div>
                 <div class ='row py-2' id ='presets'>
-                    <button class = 'my-1 rounded'type="button" id='Austin'>Austin</button>
+                    <button class = 'my-1 rounded'type="button" id='Washington'> Seattle </button>
                     <br>
-                    <button class = 'my-1 rounded'type="button" id='Chicago'>Chicago</button>
+                    <button class = 'my-1 rounded'type="button" id='Illinois'>Chicago</button>
                     <br>
-                    <button class = 'my-1 rounded'type="button" id='New'>New York</button>
+                    <button class = 'my-1 rounded'type="button" id='Cali'>Los Angeles</button>
                     <br>
-                    <button class = 'my-1 rounded'type="button" id='Orlando'>Orlando</button>
+                    <button class = 'my-1 rounded'type="button" id='Florida'>Orlando</button>
                     <br>
                     <button class = 'my-1 rounded'type="button" id='San'>San Francisco</button>
                     <br>
-                    <button class = 'my-1 rounded'type="button" id='Seattle'>Seattle</button>
+                    <button class = 'my-1 rounded'type="button" id='Texas'>Austin</button>
                     <br>
-                    <button class = 'my-1 rounded'type="button" id='Denver'>Denver</button>
+                    <button class = 'my-1 rounded'type="button" id='Colorado'>Denver</button>
                     <br>
-                    <button class = 'my-1 rounded'type="button" id='Atlanta'>Atlanta</button>
+                    <button class = 'my-1 rounded'type="button" id='Georgia'>Atlanta</button>
                     <br>
                 </div>
             </div>
@@ -63,14 +63,11 @@
             
             <div class ="col-8  " id= 'stage'>
                 <div class = ''id ='current'>
-                    <h1 class='mx-2 display-6'id='City'>Enter a City</h1>
+                    <h1 class='mx-2 display-6'id='city'>Enter City</h1>
                     <img class='mx-3' id ='icon' src='' alt=''>
-                    <p class='mx-3'id='temp'>Current Temperature:</p>
+                    <p class='mx-3'id='temp'>Current Temp:</p>
                     <p class='mx-3'id ='wind'>Wind:</p>
                     <p class='mx-3'id ='humidity'>Humidity:</p>
-                    <p class='mx-3'id='uv'>UV Index:</p>
-                    <p class='mx-3'id ='sunrise'>Sunrise:</p>
-                    <p class='mx-3'id='sunset'>Sunset:</p>
                 </div>
                 <div class= 'container'id ='fiveDay'></div>
             </div>
@@ -78,7 +75,6 @@
         </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-
     <script src="./assets/js/script.js"></script>
 </body>
 </html>

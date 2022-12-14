@@ -9,6 +9,43 @@ body {
 
 header {
     padding: 0.375rem;
-    background-color: #2d3e50;
+    background-color: #8080ff;
     color: #d9e9e8;
   }
+
+#Washington{
+    background-color: grey;
+  }
+
+  #Illinois
+  {
+    background-color: grey;
+} 
+
+#Cali {
+    background-color: grey;
+}
+
+#Florida {
+    background-color: grey;
+}
+
+#San {
+    background-color: grey;
+}
+
+#Texas {
+    background-color: grey;
+}
+
+#Colorado {
+    background-color: grey;
+}
+
+#Georgia{ 
+    background-color: grey;
+}
+
+#searchBtn {
+    background-color: #4d79ff;
+}
