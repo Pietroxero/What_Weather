@@ -35,7 +35,7 @@ function getLongitudeLatitude (name) {
         longitude = data.city.coord.lon;
         latitude = data.city.coord.lat;
         console.log(longitude, latitude)
-        getWeatherResults(longitude,latitude);
+        getWeatherResults(longitude, latitude);
     })
 }
 
@@ -65,7 +65,7 @@ for (var i = 0; i<5; i++){
     .then(data => {
 $("fiveDayIcon").attr('src', data.url);
     });
-    fivescards(getDate(dailyArray[i].dt), iurl, dailyArray[i].temp.max, dailyArray[i].temp.min,
+    fivescards(getDateEl(dailyArray[i].dt), iurl, dailyArray[i].temp.max, dailyArray[i].temp.min,
     dailyArray[i].wind.speed, dailyArray[i].humidity);
 }
 
@@ -135,14 +135,57 @@ function usersData(){
         longitude = data.city.coord.lon;
         latitude = data.city.coord.lat;
         var icoding=data.weather[0].icon;
-        var iurl = "https://openweathermap.org/img/wn/" + iconData + ".png";
+        var iurl = "https://openweathermap.org/img/wn/" + icoding + ".png";
         fetch(iurl)
         then (data => {
             icon.attr('src', data.url)
         });
-        city.text(`${data.name} (${getDate(data.dt)})`);
+        city.text(`${data.name} (${getDateEl(data.dt)})`);
         getWeatherResults();
     });
 };
 
 //these are meant to manipulate our DOM elements.
+function fivescards(date, icon, tempH, tempL, windSpeed, humidity) {
+    fiveDayWeek.append(`<div class="card d-inline-flex mx-3" style ="width: 13rem; border-radius: 30px; background-color: grey;">
+    <div class ="card-body text-center" id='fivescards'>
+  <h5 class = "card-title" id = 'card-title'>${date}</h5>
+  <h6 class = "card-subtitle mb-2 text-muted" id = 'temp'>High ${tempH}</h6>
+  <h6 class = "card-subtitle mb-2 text-muted" id = 'temp'>High ${tempL}</h6>
+  <h6 class = "card-subtitle mb-2 text-muted" id = 'temp'>High ${windSpeed} MPH </h6>
+  <h6 class = "card-subtitle mb-2 text-muted" id = 'temp'>High ${Humidity}</h6>  
+  </div>
+  </div>`);
+};
+
+//function will be for established time (day, month year)
+function getDateEl (unix_time){
+var currentdate = new Date(unix_time*1000);
+var mm = date.getMm()+1;
+var dd = date.getDd();
+var yyyy = date.getFullYear();
+return`${yyyy}/${dd}/${mm}`;
+}
+
+//this loop is for the preset buttons for cities meant to update weather
+var placeNames = ['Seattle', 'Chicago', 'Los Angeles', 'Orlando', 'San Francisco', 'Austin', 'Portland', 'Atlanta']
+var uscity = [$('Washington'), $('Illinois'), $('Cali'), $('Florida'), $('San'), $('Texas'), $('Port'), $('Georgia')]
+for (var i=0; i < uscity.length && placeNames.length; i++){
+    uscity[i].on("click", () => {
+        stormURL= 'https://api.openweathermap.org/data/2.5/weather?q=' + placeNames[i] + `&units=imperial&appid=${APIKey}`;
+        fetch(stormURL)
+        then(reponse => response.JSON())
+        then(data => {
+            longitude = data.city.coord.lon;
+            latitude = data.city.coord.lat;
+            var icoding=data.weather[0].icon;
+            var iurl = "https://openweathermap.org/img/wn/" + icoding + ".png";
+            fetch(iurl)
+            then (data => {
+                icon.attr('src', data.url)
+            });
+city.text(`${data.name} (${getDateEl(data.dt)})`);
+ getWeatherResults();
+        });
+    });
+};
