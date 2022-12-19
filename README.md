@@ -1,4 +1,4 @@
-# What_Wheater
+# What_Weather
 
 ## Description
 
