@@ -146,14 +146,14 @@ function usersData(){
 };
 
 //these are meant to manipulate our DOM elements.
-function fivescards(date, icon, tempH, tempL, windSpeed, humidity) {
+function fivescards(date, tempH, tempL, windSpeed, humidity) {
     fiveDayWeek.append(`<div class="card d-inline-flex mx-3" style ="width: 13rem; border-radius: 30px; background-color: grey;">
     <div class ="card-body text-center" id='fivescards'>
   <h5 class = "card-title" id = 'card-title'>${date}</h5>
   <h6 class = "card-subtitle mb-2 text-muted" id = 'temp'>High ${tempH}</h6>
   <h6 class = "card-subtitle mb-2 text-muted" id = 'temp'>High ${tempL}</h6>
   <h6 class = "card-subtitle mb-2 text-muted" id = 'temp'>High ${windSpeed} MPH </h6>
-  <h6 class = "card-subtitle mb-2 text-muted" id = 'temp'>High ${Humidity}</h6>  
+  <h6 class = "card-subtitle mb-2 text-muted" id = 'temp'>High ${humidity}</h6>  
   </div>
   </div>`);
 };
