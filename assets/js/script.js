@@ -204,7 +204,7 @@ for (var i = 0; i < uscity.length && placeNames.length; i++) {
       placeNames[i] +
       `&units=imperial&appid=${APIKey}`;
     fetch(stormURL);
-    then((reponse) => response.JSON());
+    then((response) => response.JSON());
     then((data) => {
       longitude = data.city.coord.lon;
       latitude = data.city.coord.lat;
