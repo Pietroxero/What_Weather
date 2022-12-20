@@ -1,6 +1,10 @@
 # What_Weather
 
 ## Description
+The purpose of this project is to create a weather API service and use what we learned regarding fetch data requests. The idea for the this page
+would be have a user input a city name (ex:Seattle) and have the current temperature, wind speed and humidity populate near the top of the page.
+Along with that users would have the ability to clear their search history from localstorage.
+Below that there 8 preset city buttons that a user could click on and have a 5 day forecast populate for the week based on the city that was clicked.
 
 ## User Stories
 As A traveler
@@ -19,7 +23,7 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 
 ## Table of contents
-
+Description, user story, acceptance criteria, tests, screenshots, deployed site URL
 ## Tests
 
 ## Screenshots
@@ -27,3 +31,4 @@ THEN I am again presented with current and future conditions for that city
 
 ## Deployed website
 
+(https://pietroxero.github.io/What_Weather/)

@@ -174,7 +174,7 @@ for (var i=0; i < uscity.length && placeNames.length; i++){
     uscity[i].on("click", () => {
         stormURL= 'https://api.openweathermap.org/data/2.5/weather?q=' + placeNames[i] + `&units=imperial&appid=${APIKey}`;
         fetch(stormURL)
-        then(reponse => response.JSON())
+        then(response => response.JSON())
         then(data => {
             longitude = data.city.coord.lon;
             latitude = data.city.coord.lat;
