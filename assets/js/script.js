@@ -53,9 +53,9 @@ function getWeatherResults(lon, lat) {
       console.log(data);
 
       // check the response from API to find the fields on data object, should be in the "list" and choose the "12" for noon
-    //   temp.text(`Current Temp: ${data.currently.temp}`);
-    //   windy.text(`Wind: ${data.currently.wind.speed} MPH`);
-    //   humidity.text(`Humidity: ${data.currently.wind.humidity}%`);
+       temp.text(`Current Temp: ${data.list[12].main.temp}`);
+       windy.text(`Wind: ${data.list[12].wind.speed} MPH`);
+       humidity.text(`Humidity: ${data.list[12].main.humidity}%`);
 
       //repeat in a loop to create cards for the preceding 5 day forecast
       weekDays.empty();
