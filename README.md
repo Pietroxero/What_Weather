@@ -25,9 +25,11 @@ THEN I am again presented with current and future conditions for that city
 ## Table of contents
 Description, user story, acceptance criteria, tests, screenshots, deployed site URL
 ## Tests
+Much of the testing for this required multiple console.log(s) for functions. Along with checking if items were being grabbed from localstorage.
+APIkey checks to ensure that I using the right key when creating fetch requests.
 
 ## Screenshots
-![Screenshot](./assets/images)
+![Screenshot](./assets/images/06-server-side-apis-homework-demo.png)
 
 ## Deployed website
 
