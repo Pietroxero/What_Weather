@@ -220,6 +220,8 @@ for (var i = 0; i < uscity.length && placeNames.length; i++) {
   });
 }
 
+
+// this will be the click event for the preset buttons
 $("#presets").on('click', ".my-1", function(){
     var city = $(this).text()
     console.log(city);
