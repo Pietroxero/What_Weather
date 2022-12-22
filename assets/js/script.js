@@ -170,7 +170,7 @@ function fivescards(date, tempH, tempL, windSpeed, humidity) {
 //function will be for established time (day, month year)
 function getDateEl(unix_time) {
   var currentdate = new Date(unix_time * 1000);
-  var mm = date.getMm() + 1;
+//   var mm = date.getMm() + 1;
   var dd = date.getDd();
   var yyyy = date.getFullYear();
   return `${yyyy}/${dd}/${mm}`;
@@ -219,3 +219,29 @@ for (var i = 0; i < uscity.length && placeNames.length; i++) {
     });
   });
 }
+
+$("#presets").on('click', ".my-1", function(){
+    var city = $(this).text()
+    console.log(city);
+    var stormURL =
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
+      city +
+      `&units=imperial&appid=${APIKey}`;
+    fetch(stormURL)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);
+      longitude = data.coord.lon;
+      latitude = data.coord.lat;
+      var icoding = data.weather[0].icon;
+      var iurl = "https://openweathermap.org/img/wn/" + icoding + ".png";
+      fivescards(data.dt, data.main.temp, data.main.temp_max, data.wind.speed, data.main.humidity, iurl);
+    //   fetch(iurl)
+    //   .then((data) => {
+    //     var icon = document.createElement("img")
+    //     icon.setAttribute("src", data.url);
+    //   });
+      city.text(`${data.name} (${getDateEl(data.dt)})`);
+      getWeatherResults();
+    });
+})
