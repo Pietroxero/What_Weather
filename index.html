@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!--Bootstrap link-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" type ="text/css" href="./assets/css/style.css"/>
@@ -26,50 +27,50 @@
 
             <div class='col-3 mx-4' id='left-column'>
                 <div class ='row border-bottom pb-2'id = 'search'>
-                    <h1 class ='display-6' id='searchpara'><strong>Search for a City:</strong></h1>
+                    <h1 class ='display-6' id='userSearches'><strong>Search for a City:</strong></h1>
                     
                     <input class ='rounded border-1'type = 'text' id ="userInput" placeholder="Enter City or State"/>
                     <br>
-                    <button class = 'my-1 mt-2 rounded' id ="searchBtn" type ="button">Search</button>
-                    <div class="card mt-5" id="recent">
-                        <h1 class ='display-6' id='searchpar'>Search history:</h1>
-                        <ul class="list-group list-group-flush" id="recently-searched-list">
+                    <button class = 'my-1 mt-2 rounded' id ="searchBtn" type ="button">Let's Go</button>
+                    <div class="card mt-5" id="userSearchrecent">
+                        <h1 class ='display-6' id='historySearch'>Historically Searched:</h1>
+                        <ul class="list-group list-group-flush" id="user-recent-list">
                          </ul> 
-                         <button class = 'my-1 mt-2 rounded' id='clearhistoryBtn'>Clear History</button>
+                         <button class = 'my-1 mt-2 rounded' id='clearhistoryBtn'>Erase History</button>
                       </div>
                     
                 </div>
-                <div class ="list-group" id= "cities"></div>
+                <div class ="list-group" id= "usCity"></div>
                 <div class ='row py-2' id ='presets'>
-                    <button class = 'my-1 rounded'type="button" id='Washington'> Seattle </button>
+                    <button class = 'my-3 rounded'type="button" id='Washington'> Seattle </button>
                     <br>
-                    <button class = 'my-1 rounded'type="button" id='Illinois'>Chicago</button>
+                    <button class = 'my-3 rounded'type="button" id='Illinois'>Chicago</button>
                     <br>
-                    <button class = 'my-1 rounded'type="button" id='Cali'>Los Angeles</button>
+                    <button class = 'my-3 rounded'type="button" id='Cali'>Los Angeles</button>
                     <br>
-                    <button class = 'my-1 rounded'type="button" id='Florida'>Orlando</button>
+                    <button class = 'my-3 rounded'type="button" id='Florida'>Orlando</button>
                     <br>
-                    <button class = 'my-1 rounded'type="button" id='San'>San Francisco</button>
+                    <button class = 'my-3 rounded'type="button" id='San'>San Francisco</button>
                     <br>
-                    <button class = 'my-1 rounded'type="button" id='Texas'>Austin</button>
+                    <button class = 'my-3 rounded'type="button" id='Texas'>Austin</button>
                     <br>
-                    <button class = 'my-1 rounded'type="button" id='Port'>Portland</button>
+                    <button class = 'my-3 rounded'type="button" id='Port'>Portland</button>
                     <br>
-                    <button class = 'my-1 rounded'type="button" id='Georgia'>Atlanta</button>
+                    <button class = 'my-3 rounded'type="button" id='Georgia'>Atlanta</button>
                     <br>
                 </div>
             </div>
             
             
-            <div class ="col-8  " id= 'stage'>
-                <div class = ''id ='current'>
-                    <h1 class='mx-2 display-6'id='city'>Enter City</h1>
+            <div class ="col-8 " id= 'stage'>
+                <div class = 'border border-dark' id ='currentPlace'>
+                    <h1 class='mx-2 display-6 'id='travel'>Enter City</h1>
                     <img class='mx-3' id ='icon' src='' alt=''>
                     <p class='mx-3'id='temp'>Current Temp:</p>
                     <p class='mx-3'id ='wind'>Wind:</p>
                     <p class='mx-3'id ='humidity'>Humidity:</p>
                 </div>
-                <div class= 'container' id ='fiveDayWeek'></div>
+                <div class= 'container' id ='futureDays'></div>
             </div>
             
         </div>
