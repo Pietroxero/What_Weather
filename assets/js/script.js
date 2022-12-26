@@ -19,8 +19,14 @@ var latitude = "";
 //event listeners for search btn or userinput
 searching.on("click", onSearchClick);
 function onSearchClick() {
-  var cityname = userIn.val();
-  getLongitudeLatitude(cityname);
+  var cityName = userIn.val();
+//   if (cityName == ''){
+//     return;
+//   }else {
+//     presentData(cityName);
+//     addRecentSearch(cityName);
+//   }
+  getLongitudeLatitude(cityName);
 }
 
 //new function takes city name from search btn
@@ -42,62 +48,29 @@ function getLongitudeLatitude(name) {
     });
 }
 
-//build next function to process long and lat
-function getWeatherResults(lon, lat) {
-  console.log(lon, lat);
-  var result = fetch(
-    `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`
-  )
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
+//this will load from our localstorage
+getRecentSearch();
 
-      // check the response from API to find the fields on data object, should be in the "list" and choose the "12" for noon
-      temp.text(`Current Temp: ${data.list[12].main.temp}`);
-            windy.text(`Wind: ${data.list[12].wind.speed} MPH`);
-          humidity.text(`Humidity: ${data.list[12].main.humidity}%`);
 
-      //repeat in a loop to create cards for the preceding 5 day forecast
-    //   futureDays.empty();
+//event listeners for search items
 
-    //   console.log(data.daily);
-    //   var dazeArray = data.daily;
-    //   for (var i = 0; i < 5; i++) {
-    //     var iconData = dazeArray[i].weather[0].icon;
-    //     var iurl = "https://openweathermap.org/img/wn/" + iconData + ".png";
-    //     fetch(iurl).then((data) => {
-    //       $("fiveDayIcon").attr("src", data.url);
-    //     });
-    //     fivescards(
-    //       getDateEl(dailyArray[i].dt),
-    //       iurl,
-    //       dailyArray[i].temp.max,
-    //       dailyArray[i].temp.min,
-    //       dailyArray[i].wind.speed,
-    //       dailyArray[i].humidity
-    //     );
-    //   }
-    });
-}
 
 //search history
 var dataCity = [];
 
-function addRecentSearch(cityname) {
-  $("#recently-searched-list").show();
+function addRecentSearch(cityName) {
+  $("#userSearchrecent").show();
 
   //new element
   var cityQuery = $("<li>");
-  cityQuery.addClass("list-group-item");
-  cityQuery.text(cityname);
+  cityQuery.addClass("group-item");
+  cityQuery.text(cityName);
   //append the item
-  $("#recently-searched-list").prepend(cityQuery);
+  $("#userSearchrecent").append(cityQuery);
 
   //new object
   var objectCities = {
-    input: cityname,
+    input: cityName,
   };
 
   citiesData.push(objectCities);
@@ -106,11 +79,31 @@ function addRecentSearch(cityname) {
   localStorage.setItem("searches", JSON.stringify(citiesData));
 }
 
-//load for recent searches from localstorage
-getSearches();
+
+//saves to local storage
+$("#user-recent-list").on("click", "li.group-item", function() {
+    var history = $(this).text();
+      
+      weatherURL = `https://api.openweathermap.org/data/2.5/forecast?q=`+ history +`&units=imperial&appid=${APIKey}`;
+      console.log(weatherURL);
+      fetch(weatherURL)
+      .then(response => response.json())
+      .then(data => {
+          longitude = data.coord.lon;
+          latitude = data.coord.lat;
+          var iconCode=data.weather[0].icon;
+          var iconURL = "https://openweathermap.org/img/wn/" + iconCode + ".png";
+      fetch(iconURL)
+          .then(data => {
+              icon.attr('src', data.url)
+          });
+          city.text(`${data.name} (${getDate(data.dt)})`);
+          presentData();
+      });
+    }); 
 
 // get recently searched items
-function getSearches() {
+function getRecentSearch() {
   var searches = JSON.parse(localStorage.getItem("searches"));
   if (searches != null) {
     for (var i = 0; i < searches.length; i++) {
@@ -119,7 +112,7 @@ function getSearches() {
       newPlace.addClass("list-group-item");
       newPlace.text(searches[i].input);
       //list to append
-      $("#user-recent-list").prepend(newPlace);
+      $("#user-recent-list").append(newPlace);
     }
     $("#userSearchrecent").show();
   } else {
@@ -155,6 +148,26 @@ function usersData() {
     getWeatherResults();
   });
 }
+
+//build next function to process long and lat
+function getWeatherResults(lon, lat) {
+    console.log(lon, lat);
+    var result = fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIKey}`
+    )
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+  
+        // check the response from API to find the fields on data object, should be in the "list" and choose the "12" for noon
+        temp.text(`Current Temp: ${data.list[12].main.temp}`);
+              windy.text(`Wind: ${data.list[12].wind.speed} MPH`);
+            humidity.text(`Humidity: ${data.list[12].main.humidity}%`);
+  
+      });
+  }
 
 //these are meant to manipulate our DOM elements.
 function fivescards(date, tempH, tempL, windSpeed, humidity) {
