@@ -12,16 +12,18 @@
     <link rel="stylesheet" type ="text/css" href="./assets/css/style.css"/>
     
 
-    <title>Weather API</title>
+    <title>Weather API Dashboard</title>
 </head>
+
 <body>
     <header id="weatherContainer" class="container mb-3 mt-3">
         <div id="weather" class="row">
           <div id="title" class="col-12 title text-center font-weight-bold">
-            <h1>Weather Dashboard</h1>
+            <h1>Weather API Dashboard</h1>
           </div>
         </div>
     </header>  
+
     <main>
         <div class="row">
 
@@ -29,7 +31,7 @@
                 <div class ='row border-bottom pb-2'id = 'search'>
                     <h1 class ='display-6' id='userSearches'><strong>Search for a City:</strong></h1>
                     
-                    <input class ='rounded border-1'type = 'text' id ="userInput" placeholder="Enter City or State"/>
+                    <input class ='rounded border-1'type = 'text' id ="userInput" placeholder="Enter City/State/Zip"/>
                     <br>
                     <button class = 'my-1 mt-2 rounded' id ="searchBtn" type ="button">Let's Go</button>
                     <div class="card mt-5" id="userSearchrecent">
@@ -40,37 +42,28 @@
                       </div>
                     
                 </div>
-                <div class ="list-group" id= "usCity"></div>
-                <div class ='row py-2' id ='presets'>
-                    <button class = 'my-3 rounded'type="button" id='Washington'> Seattle </button>
-                    <br>
-                    <button class = 'my-3 rounded'type="button" id='Illinois'>Chicago</button>
-                    <br>
-                    <button class = 'my-3 rounded'type="button" id='Cali'>Los Angeles</button>
-                    <br>
-                    <button class = 'my-3 rounded'type="button" id='Florida'>Orlando</button>
-                    <br>
-                    <button class = 'my-3 rounded'type="button" id='San'>San Francisco</button>
-                    <br>
-                    <button class = 'my-3 rounded'type="button" id='Texas'>Austin</button>
-                    <br>
-                    <button class = 'my-3 rounded'type="button" id='Port'>Portland</button>
-                    <br>
-                    <button class = 'my-3 rounded'type="button" id='Georgia'>Atlanta</button>
-                    <br>
-                </div>
-            </div>
-            
+                
             
             <div class ="col-8 " id= 'stage'>
                 <div class = 'border border-dark' id ='currentPlace'>
-                    <h1 class='mx-2 display-6 'id='travel'>Enter City</h1>
+                    <div class="card">
+                        <div class="card-body">
+                    <h1 class='mx-2 display-6 card-title' id='travelDate'>Enter City</h1>
                     <img class='mx-3' id ='icon' src='' alt=''>
                     <p class='mx-3'id='temp'>Current Temp:</p>
                     <p class='mx-3'id ='wind'>Wind:</p>
                     <p class='mx-3'id ='humidity'>Humidity:</p>
                 </div>
-                <div class= 'container' id ='futureDays'></div>
+                </div>
+            </div>
+            
+                <div class= 'container' id ='futureDays'>
+                    <h4>5 Day Forecast:</h4>
+                    <div>
+                        <div id="fiveForecast" class="d-flex justify-content-between"></div>
+                    </div>
+                </div>
+
             </div>
             
         </div>
