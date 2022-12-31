@@ -1,15 +1,71 @@
-body {
-    margin: 0;
-  }
+*{
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
-  h1 {
+p{
+  font-weight: bold;
+  font-size:120%;
+}
+
+#card-title{
+  font-size: 150%;
+  color: rgb(0, 0, 0)!important;
+}
+
+#searchBtn{
+  font-size:130%;
+  background-color: rgb(255, 241, 115);
+  color: black
+}
+
+#searchtxt{
+  font-style:bold;
+  color: rgb(255, 241, 115)
+}
+
+
+
+/* body {
+    margin: 0;
+  } */
+
+  /* h1 {
     font-size: 2em;
     margin: 0.67em 0;
-  } 
+    height: 80px;
+  }  */
 
-header {
-    padding: 0.375rem;
-    background-color: #8080ff;
-    color: #d9e9e8;
-  }
+  /* .title {
+  height: 80px;
+    padding: 15px;
+    background-color: crimson;
+    color: black;
+  } */
+
+  /* .searchArea {
+    background-color:rgb(250, 246, 246);
+  } */
+
+  /* div#fiveForecast div{
+    width: 125px;
+    color: black;
+    padding: 5px;
+    border-radius: 3px;
+  }*/
+
+  /* .card{
+     margin: auto; 
+    position: absolute;
+    right: 300px;
+  width: 500px;
+  border: 5px solid crimson;
+  padding: 30px 40px;
+
+}
+
+#searchBtn{
+  width: 700px;
+}
+ */
+
 

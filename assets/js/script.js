@@ -18,6 +18,12 @@ var userIn = $("#searchArea");
 // var city= $("#travel");
 // var currently = $("#currentPlace");
 
+//clear button function
+$("#clearhistoryBtn").on("click", function () {
+  localStorage.clear();
+  $("#searchHistory").empty();
+});
+
 
 function getStormData (lat, lon, city) {
     //recycling url variable frm previous version of function built see lines 171-189
@@ -87,9 +93,9 @@ function currentCityStorm (city){
     // getStormData(response.city.coord.lat, response.city.coord.lon, response.city.name);
  var urlIcon = "https://openweathermap.org/img/wn/" + data.weather[0].icon + ".png"
      $('#placeDate').html(city + " (" + new Date().toLocaleDateString()+ ") <img id=\"icon\" src=\"" + urlIcon + "\" alt=\"Weather icon\"/>");
-    temp.text(`Current Temp: ${data.main.temp}&degF`);
+    temp.text(`Current Temp: ${data.main.temp} \xB0F`);
   windy.text(`Wind: ${data.wind.speed} MPH`);
- humidity.text(`Humidity: ${data.main.humidity}%`);
+ humidity.text(`Humidity: ${data.main.humidity} %`);
 });
 
 }
@@ -122,9 +128,9 @@ var dayIcon = "https://openweathermap.org/img/wn/" + stormData.list[i].weather[0
 var iconImg = $("<img>").attr('src', dayIcon);
 
 temperature = (stormData.list[i].main.temp);
-var weekTemp = $("<p>").html("Temp" + temperature + "degF");
+var weekTemp = $("<p>").html("Temp" + temperature + "\xB0F");
 var weekHum = $("<p>").html("Humidity" + stormData.list[i].main.humidity + "%");
-var weekWind = $("<p>").html("Wind Speed" + stormData.list[i].wind.speed);
+var weekWind = $("<p>").html("Wind Speed" + stormData.list[i].wind.speed + "MPH");
 
 
 div.append(headerDay);
@@ -311,11 +317,7 @@ $(document).ready(function(){
 //   }
 // }
 
-//clear button function
-// $("#clearhistoryBtn").on("click", function () {
-//   localStorage.clear();
-//   $("user-recent-list").empty();
-// });
+
 
 //function that will take user input city, state, country using fetch for longitude, latitude
 // function usersData() {
