@@ -30,7 +30,8 @@ APIkey checks to ensure that I using the right key when creating fetch requests.
 Other testing included changing original format of the HTML and the javascript, initially I was building several different functions and had preset buttons for city to generate the weather, I then changed the html to the modal model and began using ajax which I found to be much simpler. 
 
 ## Screenshots
-![Screenshot](./assets/images/06-server-side-apis-homework-demo.png)
+![Screenshot](./assets/images/weather%20API.png)
+![Screenshot](./assets/images/weather%20API%202.png)
 
 ## Deployed website
 

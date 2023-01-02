@@ -104,10 +104,7 @@ function currentCityStorm (city){
 // rinse and repeat the above line 30 for same functionality
 //however this will save the city name to local storage
 .then(function(data){
-    // if (!isClicked){
-    //     saveLocal(response);
-    //     renderLocal();
-    // }
+    
 
     //here we load the previous function on line 19
     // getStormData(response.city.coord.lat, response.city.coord.lon, response.city.name);
@@ -172,18 +169,7 @@ function loadCityStorm (city, isClicked){
 
 //in this section we will be displaying the information we are pulling/saving
 function showStormData (stormData, city) {
-    //here is where we load data for current time
-    // var urlIcon = "https://openweathermap.org/img/wn/" + stormData.current.weather[0].icon + ".png"
-    // $('#placeDate').html(city + " (" + newDate().toLocaleDateString()+ ") <img id=\"icon\" src=\"" + urlIcon + "\" alt=\"Weather icon\"/>");
 
-//in this section we are getting the temp, humidity and windspeed
-// var temperature = parseInt(stormData.current.temp);
-// temperature = Math.round(((temp-273.15)*1.8)+ 32);
-
-//recycling code from lines 226-228 from previously written function
-// temp.text(`Current Temp: ${data.list[12].main.temp}&degF`);
-//  windy.text(`Wind: ${data.list[12].wind.speed} MPH`);
-//  humidity.text(`Humidity: ${data.list[12].main.humidity}%`);
 
 //within this section we are going to load the 5 day forecast cards
 var fiveDays = $('#fiveForecast');
