@@ -198,9 +198,9 @@ var dayIcon = "https://openweathermap.org/img/wn/" + stormData.list[i].weather[0
 var iconImg = $("<img>").attr('src', dayIcon);
 
 temperature = (stormData.list[i].main.temp);
-var weekTemp = $("<p>").html("Temp" + temperature + "\xB0F");
-var weekHum = $("<p>").html("Humidity" + stormData.list[i].main.humidity + "%");
-var weekWind = $("<p>").html("Wind Speed" + stormData.list[i].wind.speed + "MPH");
+var weekTemp = $("<p>").html("Temp: " + temperature + "\xB0F");
+var weekHum = $("<p>").html("Humidity: " + stormData.list[i].main.humidity + "%");
+var weekWind = $("<p>").html("Wind Speed: " + stormData.list[i].wind.speed + "MPH");
 
 
 div.append(headerDay);

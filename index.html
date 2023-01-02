@@ -18,11 +18,11 @@
     <title>Weather API Dashboard</title>
   </head>
 
-  <body>
-    <header id="weatherContainer" class="container mb-3 mt-3">
-      <div id="weather" class="row">
-        <div id="title" class="col-12 title text-center font-weight-bold">
-          <h1>Weather API Dashboard</h1>
+  <body style="background-color: black;">
+    <header id="weatherContainer" class="container mb-3 mt-3" style="background-color: crimson;">
+      <div id="weather" class="row" >
+        <div id="title" class="col-12 title text-center font-weight-bold" >
+          <h1 >Weather API Dashboard</h1>
         </div>
       </div>
     </header>
@@ -34,32 +34,34 @@
             id="searchAreaContainer"
             class="mx-2 font-weight-bold text-left"
           >
-            <p>Search for a City:</p>
+            <p style="color: white;">Search for a City:</p>
             <div>
               <input
                 id="searchArea"
                 type="search"
-                class="form-control rounded-0"
+                class="form-control rounded "
                 placeholder="Enter City/State"
+                style="  box-shadow: 5px 5px #888888; padding: 15px;
+                "
               />
               <button
-                class="my-1 mt-2 rounded userBtn"
+                class="my-1 mt-2 rounded userBtn btn btn-info"
                 id="searchBtn"
                 type="button"
               >
                 Let's Go
               </button>
               <br>
-              <button class = 'my-1 mt-2 rounded' id='clearhistoryBtn'>Erase History</button>
+              <button type ="button" class = 'btn btn-danger my-1 mt-2 rounded' id='clearhistoryBtn'>Erase History</button>
 
-              <div class="list-group" id="searchHistory"></div>
+              <div class="list-group" id="searchHistory" style="  box-shadow: 5px 5px #888888; padding: 15px"></div>
             </div>
 
 
             </div>
         </div>
 
-        <div class="col-md-8 col-sm-12 h-50" style="background-color: black; padding: 20px;">
+        <div class="col-md-8 col-sm-12 h-50" style="background-color: slategray; padding: 20px;">
           <div id="stormData">
             <div id="stormCurrently" class="border-light">
               <div class="card">
@@ -78,8 +80,8 @@
 
           
 
-            <div id="storm5Day">
-              <h4>5 Day Forecast:</h4>
+            <div id="storm5Day" style="padding: 20px;">
+              <h5><strong>5 Day Forecast: </strong></h5>
               <div>
                 <div
                   id="fiveForecast"
@@ -94,52 +96,3 @@
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
-
-<!-- <form class="row g-3">
-                <div class="col-auto">
-                  <input type="text" readonly class="form-control-plaintext" value="Search for a City:">
-                </div>
-                <div class="col-auto">
-                  <label for="input2" class="visually-hidden">Enter City/State</label>
-                  <input type="cityLookup" class="form-control" id="cityStateLookup" placeholder="Enter City/State">
-                </div>
-                <div class="col-auto">
-                  <button type="submit" class="btn btn-primary mb-3">Let's Go</button>
-                </div>
-              </form> -->
-
-<!-- <div class = 'border border-dark' id ='currentPlace'>
-                    <div class="card">
-                        <div class="card-body">
-                    <h1 class='mx-2 display-6 card-title' id='travel'>Enter City</h1>
-                    <img class='mx-3' id ='icon' src='' alt=''>
-                    <p class='mx-3'id='temp'>Current Temp:</p>
-                    <p class='mx-3'id ='wind'>Wind:</p>
-                    <p class='mx-3'id ='humidity'>Humidity:</p>
-                </div>
-                </div>
-            </div>
-
-            <div id ='futureDays'>
-                <h4>5 Day Forecast:</h4>
-                <div>
-                    <div id="fiveForecast" class="d-flex justify-content-between"></div>
-                </div>
-            </div>
-
-        </div> -->
-
-<!-- <div class ='row border-bottom pb-2' id = 'search'>
-                    <h1 class ='display-6' id='userSearches'><strong>Search for a City:</strong></h1>
-                    
-                    <input class ='rounded border-1'type = 'text' id ="userInput" placeholder="Enter City/State"/>
-                    <br>
-                    <button class = 'my-1 mt-2 rounded' id ="searchBtn" type ="button">Let's Go</button>
-                    <div class="card mt-5" id="userSearchrecent">
-                        <h1 class ='display-6' id='historySearch'>Historically Searched:</h1>
-                        <ul class="list-group list-group-flush" id="user-recent-list">
-                         </ul> 
-                         <button class = 'my-1 mt-2 rounded' id='clearhistoryBtn'>Erase History</button>
-                      </div>
-                    
-                </div> -->
