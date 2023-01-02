@@ -28,30 +28,14 @@
     </header>
 
     <main>
-      <div class="row col-auto">
-        <div class="col-8 h-50 pr-0 pt-3">
-          <div id="stormData">
-            <div id="stormCurrently" class="border-light">
-              <div class="card">
-                <div class="card-body">
-                  <h4 id="placeDate" class="card-title"></h4>
-                  <p class="card-text"><span> </span><span id="temp"></span></p>
-                  <p class="card-text"><span></span><span id="windy"></span></p>
-                  <p class="card-text">
-                    <span></span
-                    ><span id="humidity" class="d-inline-block"></span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
           <div
             id="searchAreaContainer"
-            class="col-3 mx-2 font-weight-bold text-left"
+            class="mx-2 font-weight-bold text-left"
           >
             <p>Search for a City:</p>
-            <div class="input-group">
+            <div>
               <input
                 id="searchArea"
                 type="search"
@@ -68,20 +52,42 @@
               <br>
               <button class = 'my-1 mt-2 rounded' id='clearhistoryBtn'>Erase History</button>
 
+              <div class="list-group" id="searchHistory"></div>
             </div>
-            <div class="list-group" id="searchHistory"></div>
+
+
+            </div>
+        </div>
+
+        <div class="col-md-8 col-sm-12 h-50" style="background-color: black; padding: 20px;">
+          <div id="stormData">
+            <div id="stormCurrently" class="border-light">
+              <div class="card">
+                <div class="card-body">
+                  <h4 id="placeDate" class="card-title"></h4>
+                  <p class="card-text"><span> </span><span id="temp"></span></p>
+                  <p class="card-text"><span></span><span id="windy"></span></p>
+                  <p class="card-text">
+                    <span></span
+                    ><span id="humidity" class="d-inline-block"></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
 
             <div id="storm5Day">
               <h4>5 Day Forecast:</h4>
               <div>
                 <div
                   id="fiveForecast"
-                  class="d-flex justify-content-between"
+                  class="d-flex justify-content-between flex-wrap"
                 ></div>
               </div>
             </div>
           </div>
-        </div>
       </div>
     </main>
 

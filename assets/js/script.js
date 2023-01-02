@@ -14,6 +14,36 @@ var latitude = "";
 var future = $("#futureDays");
 var userIn = $("#searchArea");
 
+$(document).ready(function(){
+    searching.on("click", onSearchClick);
+    function onSearchClick() {
+        var cityName = $('#searchArea').val();
+        if (cityName == ''){
+            return;
+        }
+        cities = JSON.parse(localStorage.getItem("locations")) || [];
+        if (cities.indexOf(cityName) == -1){
+            cities.push(cityName)
+            localStorage.setItem("locations", JSON.stringify(cities));
+
+        }
+            loadLocal();
+            loadCityStorm(cityName, true);
+
+    }
+    // $('#stormData').hide();
+    loadLocal();
+    // $('#searchBtn').click(function (event){
+    //     var event = event.target;
+    //     var searchParameters = $('#searchArea').val();
+    //     if(searchParameters !==""){
+    //         var city = parseInt(searchParameters);
+    //     } else {
+    //         loadCityStorm(searchParameters, false);
+    //     }
+    // });
+});
+
 
 //clear button function
 $("#clearhistoryBtn").on("click", function () {
@@ -58,35 +88,7 @@ function saveLocal(data){
     localStorage.setItem('locations', JSON.stringify(locations));
 }
 
-$(document).ready(function(){
-    searching.on("click", onSearchClick);
-    function onSearchClick() {
-        var cityName = $('#searchArea').val();
-        if (cityName == ''){
-            return;
-        }
-        cities = JSON.parse(localStorage.getItem("locations")) || [];
-        if (cities.indexOf(cityName) == -1){
-            cities.push(cityName)
-            localStorage.setItem("locations", JSON.stringify(cities));
 
-        }
-            loadLocal();
-            loadCityStorm(cityName, true);
-
-    }
-    // $('#stormData').hide();
-    loadLocal();
-    // $('#searchBtn').click(function (event){
-    //     var event = event.target;
-    //     var searchParameters = $('#searchArea').val();
-    //     if(searchParameters !==""){
-    //         var city = parseInt(searchParameters);
-    //     } else {
-    //         loadCityStorm(searchParameters, false);
-    //     }
-    // });
-});
 
 //this function will be to generate out forecast for current day
 function currentCityStorm (city){
@@ -189,7 +191,7 @@ fiveDays.empty();
 
 for (i=0; i < 40; i+=8) {
 //here is where we will  create the elements that will display those 5 day cards and append in the html
-var div = $("<div>").addClass('bg-primary');
+var div = $("<div>").addClass('bg-primary').addClass('text-center').addClass('m-2');
 var TimeyWimey = parseInt(stormData.list[i].dt);
 var headerDay = $("<h6>").text(new Date(TimeyWimey*1000).toLocaleDateString());
 var dayIcon = "https://openweathermap.org/img/wn/" + stormData.list[i].weather[0].icon + ".png"
